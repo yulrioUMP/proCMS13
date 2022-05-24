@@ -1,0 +1,36 @@
+echo "# proCMS13" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/yulrioUMP/proCMS13.git
+git push -u origin main
+
+
+
+git remote add origin https://--------token-------@github.com/yulrioUMP/proCMS13.git
+git branch -M main
+git push -u origin main
+
+------------------------------------------------------------
+//inisialisasi
+git init
+
+//melihat status
+git status
+
+//memasukan file ke git
+git add --all
+
+//melihat status
+git status
+
+//commit status
+git commit -a -m "All"
+
+
+
+
+
+
+
