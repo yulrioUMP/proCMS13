@@ -28,7 +28,11 @@ git status
 //commit status
 git commit -a -m "All"
 
+git remote add origin https://--------token-------@github.com/yulrioUMP/proCMS13.git
 
+git branch -M main
+
+git push -u origin main
 
 
 
