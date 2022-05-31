@@ -9,7 +9,7 @@
                 <th scope="col">Category</th>
                 <th scope="col">Create At</th>
                 <th scope="col">Update At</th>
-                <th scope="col">Add</th>
+                <th scope="col"><a href="categories/create">Add</a></th>
             </tr>
         <tbody>
             @php ($no = 1)
