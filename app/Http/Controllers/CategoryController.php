@@ -39,7 +39,7 @@ class CategoryController extends Controller
         $category = new Category;
         $category->category = $request->category;
         $category->save();
-        redirect("categories");
+        return redirect("categories");
     }
 
     /**
