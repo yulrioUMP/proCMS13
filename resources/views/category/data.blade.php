@@ -19,7 +19,7 @@
                 <td>{{$category['category']}}</td>
                 <td>{{$category['created_at']}}</td>
                 <td>{{$category['updated_at']}}</td>
-                <td>edit | del</td>
+                <td><a href="/categories/{{$category['id']}}">edit</a> | del</td>
             </tr>
             @endforeach
         </tbody>
