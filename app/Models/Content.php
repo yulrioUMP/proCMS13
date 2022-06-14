@@ -9,5 +9,10 @@ class Content extends Model
 {
     use HasFactory;
     public $primaryKey = "id";
-    protected $table = "content";
+    protected $table = "contents";
+
+    public function get_category()
+    {
+        return $this->belongsTo('App\Models\Category', 'id_cat');
+    }
 }

@@ -5,12 +5,15 @@
     <form action="/categories/{{$category['id']}}" method="post">
         <div class="mb-3">
             <label class="form-label">Category</label>
-            <input type="text" class="form-control" placeholder="category" name="category" value="{{ $category['category'] }}">
+            <div>
+                {{ $category['category'] }}
+            </div>
+
         </div>
         <div class="mb-3">
             @csrf
-            @method('PUT')
-            <button type="submit" class="btn btn-primary">Update</button>
+            @method('DELETE')
+            <button type="submit" class="btn btn-primary">Delete</button>
         </div>
     </form>
 </div>
