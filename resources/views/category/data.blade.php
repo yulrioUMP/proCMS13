@@ -9,7 +9,7 @@
                 <th scope="col">Category</th>
                 <th scope="col">Create At</th>
                 <th scope="col">Update At</th>
-                <th scope="col"><a href="categories/create">Add</a></th>
+                <th scope="col"><a href="categories/create"><i class="bi bi-plus-square-fill"></i></a></th>
             </tr>
         <tbody>
             @php ($no = 1)
@@ -20,8 +20,8 @@
                 <td>{{$category['created_at']}}</td>
                 <td>{{$category['updated_at']}}</td>
                 <td>
-                    <a href="/categories/{{$category['id']}}/edit">edit</a> |
-                    <a href="/categories/{{$category['id']}}">del</a>
+                    <a href="/categories/{{$category['id']}}/edit"><i class="bi bi-pencil-fill"></i></a> |
+                    <a href="/categories/{{$category['id']}}"><i class="bi bi-trash-fill"></i></a>
                 </td>
             </tr>
             @endforeach

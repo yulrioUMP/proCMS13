@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
@@ -36,7 +37,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/categories">Categories</a>
+                            <a class="nav-link" href="/categories"><i class="bi bi-journal-text"></i> Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contents"><i class="bi bi-journals"></i> Contents</a>
                         </li>
                     </ul>
 

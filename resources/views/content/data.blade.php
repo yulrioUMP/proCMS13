@@ -11,7 +11,7 @@
                 <th scope="col">Content</th>
                 <th scope="col">Photo</th>
                 <th scope="col">Update At</th>
-                <th scope="col"><a href="contents/create">Add</a></th>
+                <th scope="col" width="80"><a href="contents/create"><i class="bi bi-plus-square-fill"></i></a></th>
             </tr>
         <tbody>
             @php ($no = 1)
@@ -21,11 +21,13 @@
                 <td>{{$content->get_category['category']}}</td>
                 <td>{{$content['title']}}</td>
                 <td>{{$content['content']}}</td>
-                <td>{{$content['picture']}}</td>
+                <td>
+                    <img src="uploads/{{$content['picture']}}" width="120px">
+                </td>
                 <td>{{$content['updated_at']}}</td>
                 <td>
-                    <a href="/contents/{{$content['id']}}/edit">edit</a> |
-                    <a href="/contents/{{$content['id']}}">del</a>
+                    <a href="/contents/{{$content['id']}}/edit"><i class="bi bi-pencil-fill"></i></a>
+                    <a href="/contents/{{$content['id']}}"><i class="bi bi-trash-fill"></i></a>
                 </td>
             </tr>
             @endforeach

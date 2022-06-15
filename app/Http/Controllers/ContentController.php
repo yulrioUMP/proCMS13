@@ -30,7 +30,19 @@ class ContentController extends Controller
         $content->id_cat = $request->category;
         $content->title = $request->title;
         $content->content = $request->content;
-        $content->picture = $request->picture;
+
+        if ($request->file('picture') != null) {
+            $file = $request->file('picture');
+
+            $filenameWithExt = $request->file('picture')->getClientOriginalName();
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSave = time() . '.' . $extension;
+
+            $destinationPath = 'uploads';
+            $file->move($destinationPath, $filenameSave);
+        }
+
+        $content->picture = $filenameSave;
         $content->save();
         return redirect('/contents');
     }
@@ -53,7 +65,26 @@ class ContentController extends Controller
         $content->id_cat = $request->category;
         $content->title = $request->title;
         $content->content = $request->content;
-        $content->picture = $request->picture;
+
+        if ($request->file('picture') != null) {
+            $file = $request->file('picture');
+
+            $filenameWithExt = $request->file('picture')->getClientOriginalName();
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSave = time() . '.' . $extension;
+
+            $destinationPath = 'uploads';
+            $file->move($destinationPath, $filenameSave);
+
+            $picture_old = $destinationPath . '/' . $request->picture_old;
+            if (file_exists(public_path($picture_old))) {
+                unlink(public_path($picture_old));
+            }
+        } else {
+            $filenameSave = $content->picture;
+        }
+
+        $content->picture = $filenameSave;
         $content->save();
         return redirect('/contents');
     }

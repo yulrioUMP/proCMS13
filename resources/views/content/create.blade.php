@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form action="/contents" method="post">
+    <form action="/contents" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label">Category</label>
             <input type="text" class="form-control" placeholder="category" name="category">
@@ -17,7 +17,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Picture</label>
-            <input type="text" class="form-control" placeholder="picture" name="picture">
+            <input type="file" class="form-control" placeholder="picture" name="picture">
         </div>
         <div class="mb-3">
             @csrf
