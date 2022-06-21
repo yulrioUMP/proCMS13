@@ -5,19 +5,32 @@
     <form action="/contents" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label">Category</label>
-            <input type="text" class="form-control" placeholder="category" name="category">
+            <select class="form-control" name="category">
+                @foreach ($categories as $category)
+                <option value="{{ $category->id}}">{{ $category->category }}
+                    @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label class="form-label">Title</label>
-            <input type="text" class="form-control" placeholder="title" name="title">
+            <input type="text" class="form-control" placeholder="title" name="title" value="{{ old('title') }}">
+            @error("title")
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="form-label">Content</label>
-            <input type="text" class="form-control" placeholder="content" name="content">
+            <input type="text" class="form-control" placeholder="content" name="content" value="{{ old('content') }}">
+            @error("content")
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label class="form-label">Picture</label>
             <input type="file" class="form-control" placeholder="picture" name="picture">
+            @error("picture")
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             @csrf

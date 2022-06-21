@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Content;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 
@@ -21,11 +22,18 @@ class ContentController extends Controller
 
     public function create()
     {
-        return view("content.create");
+        $categories = Category::all();
+        return view("content.create", ['categories' => $categories]);
     }
 
     public function store(Request $request)
     {
+        $validasi = $request->validate([
+            'title' => 'required|min:10|unique:contents',
+            'content' => 'required',
+            'picture' => 'required'
+        ]);
+
         $content = new Content();
         $content->id_cat = $request->category;
         $content->title = $request->title;
@@ -55,12 +63,18 @@ class ContentController extends Controller
 
     public function edit($id)
     {
+        $categories = Category::all();
         $content = Content::find($id);
-        return view("content.edit", ['content' => $content]);
+        return view("content.edit", ['content' => $content, 'categories' => $categories]);
     }
 
     public function update(Request $request, $id)
     {
+        $validasi = $request->validate([
+            'title' => 'required|min:10',
+            'content' => 'required',
+        ]);
+
         $content = Content::find($id);
         $content->id_cat = $request->category;
         $content->title = $request->title;
