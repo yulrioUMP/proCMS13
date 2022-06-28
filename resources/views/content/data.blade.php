@@ -18,16 +18,16 @@
             @foreach ($contents as $content )
             <tr>
                 <td scope="row">{{ $no++ }}</td>
-                <td>{{$content->get_category['category']}}</td>
-                <td>{{$content['title']}}</td>
+                <td>{{$content->get_category->category}}</td>
+                <td>{{$content->title}}</td>
                 <td>{{ substr($content->content,0,150)."..." }}</td>
                 <td>
-                    <img src="uploads/{{$content['photo']}}" width="120px">
+                    <img src="uploads/{{$content->picture}}" width="120px">
                 </td>
                 <td>{{$content['updated_at']}}</td>
                 <td>
-                    <a href="/contents/{{$content['id']}}/edit"><i class="bi bi-pencil-fill"></i></a>
-                    <a href="/contents/{{$content['id']}}"><i class="bi bi-trash-fill"></i></a>
+                    <a href="/contents/{{$content->id}}/edit"><i class="bi bi-pencil-fill"></i></a>
+                    <a href="/contents/{{$content->id}}"><i class="bi bi-trash-fill"></i></a>
                 </td>
             </tr>
             @endforeach

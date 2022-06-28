@@ -8,7 +8,7 @@
         @foreach ($contents as $content )
         <div class="col">
             <div class="card h-100">
-                <img src="{{url('uploads/')}}/{{$content->photo}}" height="100%" class="card-img-top" alt="{{$content->title}}">
+                <img src="{{url('uploads/')}}/{{$content->picture}}" height="100%" class="card-img-top" alt="{{$content->title}}">
                 <div class="card-body">
                     <h5 class="card-title">{{$content->title}}</h5>
                     <p class="card-text">{{ substr($content->content,0,150)."..." }}</p>
