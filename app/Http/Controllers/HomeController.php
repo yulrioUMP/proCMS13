@@ -2,27 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Content;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('home');
+        $contents = Content::all();
+        return view('home.welcome', ["contents" => $contents]);
+    }
+
+    public function read($id)
+    {
+        $content = Content::find($id);
+        return view('home.read', ["content" => $content]);
+    }
+
+    public function category($id)
+    {
+        $category = Category::find($id);
+        $contents = Content::where('id_cat', $id)->get();
+        return view('home.category', ["contents" => $contents, "category" => $category]);
     }
 }

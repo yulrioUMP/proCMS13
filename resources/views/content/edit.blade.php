@@ -18,7 +18,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Content</label>
-            <input type="text" class="form-control" placeholder="content" name="content" value="{{$content->content}}">
+            <textarea name="content" class="form-control" rows="10">{{ $content->content }}</textarea>
         </div>
         <div class="mb-3">
             <label class="form-label">Picture</label>
