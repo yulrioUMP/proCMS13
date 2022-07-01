@@ -20,9 +20,9 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Content</label>
-            <textarea name="content" class="form-control" rows="10">{{ old('content') }}</textarea>
-            @error("content")
-            <div class="alert alert-danger">{{ $message }}</div>
+            <input name="content" class="form-control" id="inputContent" value="{{ old('content')}}">
+            @error('content')
+            <div class="alert alert-danger">{{ $message}} </div>
             @enderror
         </div>
         <div class="mb-3">
